@@ -6,5 +6,7 @@ Roughly speaking, I plan to store data about users including personal info such 
 
 The functionality or flow that I am hoping for is a user can visit the site and see trending or popular articles. From there, they will have the ability to create an account or sign in to their existing account. Once logged in, a user should be able to see stories they have saved and have the ability to comment on stories. Some additional features I would like to implement include user preferences such as preferred topics and region as well as the ability to suggest related stories.
 
+This is the API I'm going to be using: https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/endpoints
+
 
 
