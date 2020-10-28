@@ -1,10 +1,10 @@
-# Capstone-Project
+News Aggregator
 
-The goal of this website will be to allow users to browse and save food recipes. Users should be able to create accounts, save recipes to their accounts and comment on existing recipes to share their feedback. I intend for the site to accommodate cooks of all ages and varying skill levels, but geared more towards beginners. I plan to use data that includes recipes and ideally additional information about those recipes such as ingredients, techniques and cuisine. 
+The goal of my website will be to allow users to create accounts and search for, browse, and save news articles. The demographic of my users will be all ages (anyone who wants to read news articles), and could be from any country. I plan to use data from Microsoft’s Bing News Search API which will include headlines, descriptions of articles and links to articles. I think this data will be sufficient for the functionality I want to include.
 
-As of right now, my database will include models for Users, Recipes, Saved Recipes, Comments, Tags and Recipe Tags. For what I envision, I think these tables will be enough to store the data and relationships I need. As far as the API goes, I think that retrieving recipe data should be straightforward although I am not sure about what limitations there may be for free access. The only sensitive information I plan on capturing is a user’s email address and password for their account. 
+Roughly speaking, I plan to store data about users including personal info such as login credentials as well as stories that they save and maybe certain preferences if I make it that far. I also plan to store data for comments. Issues I could run into with my API include retrieving and utilizing data the way I want to, but the Bing API seems pretty robust so I hope that it is a straightforward process.
 
-Users will be able to go to the homepage of the site and see some recommended/popular recipes. From the homepage, they can search for recipes using keywords, or browse recipes based on certain criteria such as ingredients, cuisine, or cooking technique. From the homepage they can also register/login to their own account, from which they can view their saved recipes. While viewing a recipe, users will be able to save that recipe, view comments and add their own comments.
+The functionality or flow that I am hoping for is a user can visit the site and see trending or popular articles. From there, they will have the ability to create an account or sign in to their existing account. Once logged in, a user should be able to see stories they have saved and have the ability to comment on stories. Some additional features I would like to implement include user preferences such as preferred topics and region as well as the ability to suggest related stories.
 
-Some additional functionality I would potentially like to include is the ability for users to add new recipes as well as a way to recommend new recipes to users based on what recipes they’ve saved or what recipe they are currently viewing.
-	
+
+
