@@ -1,4 +1,4 @@
-News Aggregator
+# News Aggregator
 
 The goal of my website will be to allow users to create accounts and search for, browse, and save news articles. The demographic of my users will be all ages (anyone who wants to read news articles), and could be from any country. I plan to use data from Microsoft’s Bing News Search API which will include headlines, descriptions of articles and links to articles. I think this data will be sufficient for the functionality I want to include.
 
