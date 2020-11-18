@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/popper"></script>
+    <script src="https://unpkg.com/bootstrap"></script>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+            <a href="/" class="navbar-brand" id="navbar-brand">Currant</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupported">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav ml-auto">
+                    <form action="/search" class="form-inline navbar-link" id="nav-search">
+                        <div class="input-group">
+                            <input type="search" name="q" class="form-control" placeholder="search news" aria-label="Search">
+                            <button class="btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            {% for cat in g.CATEGORIES %}
+                                <a href="/home/category/{{cat.cat_name}}" class="dropdown-item">
+                                <i class="{{cat.categories.icon}} mr-2"></i>
+                                    {% if cat.cat_name == "topstories" %}
+                                    Top Stories
+                                    {% elif cat.cat_name == "scienceandtechnology" %}
+                                    Science and Technology
+                                    {% elif cat.cat_name == "realestate" %}
+                                    Real Estate
+                                    {% elif cat.cat_name == "us" %}
+                                    US
+                                    {% elif cat.cat_name == "uk" %}
+                                    UK
+                                    {% else %}
+                                    {{cat.cat_name|capitalize}}
+                                    {% endif %}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if g.user %}
+                        <a class="nav-link mr-2" href="/user/logout">Logout</a>
+                        <a class="nav-link mr-5" href="/user/{{g.user.id}}">{{g.user.username}}<img src="{{g.user.image_url}}" alt="" class="ml-1"style="width: 1.5rem"></a>
+                    {% else %}
+                        <a class="nav-link mr-2" href="/user/register">Register <span class="sr-only"></span></a>
+                        <a class="nav-link mr-5" href="/user/login">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid w-50">
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+            <div class="alert alert-{{ category }} text-center">{{ message }}</div>
+        {% endfor %}
+    </div>
+
+    {% block content%}{% endblock %}
+
+
+<script src="/static/app.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+</body>
+</html>

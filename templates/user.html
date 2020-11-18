@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}User {{g.user.id}}{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+        <div class="card mb-5" id="profile-card">
+            <img class="card-img-top" src="{{g.user.image_url}}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-title lead mb-0">{{g.user.username}}</p>
+              <p class="card-text"><small>Joined: 10-30-2020</small></p>
+              <a href="/user/{{g.user.id}}/edit" class="btn btn-primary">Edit Profile</a>
+            </div>
+        </div>
+
+        <div class="col-10 pb-3 saved-articles-col">
+            <div class="container">
+                <div class="row">
+                    <p class="h4 mb-4">Saved Articles</p>
+                </div>
+                <div class="row">
+                    <div class="col pl-0">
+                        <div class="list-group-flush">
+                            {% for article in saved_articles %}
+                            <div class="list-group-item list-group-item-action pl-1">
+                                <div class="d-flex justify-content-between"> 
+                                <a target="_blank" href="{{article.url}}" class="text-dark">
+                                    <p class="h5 d-inline saved-article-name">{{article.name}}</p>
+                                </a>
+                                <i class="fas fa-trash-alt mr-1 mt-1"></i>
+                                </div> 
+                                <p class="mb-0" id="saved-article-url"><small>{{article.url}}</small></p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

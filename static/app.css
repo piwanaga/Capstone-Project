@@ -1,0 +1,55 @@
+.fa-star {
+    cursor: pointer;
+}
+
+.fa-trash-alt {
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    #topics-container {
+        margin-left: 1rem;
+    }
+
+    #stories-container {
+        margin-left: 1rem;
+    }
+
+    #search-container {
+        margin-left: 1rem;
+    }
+
+    #nav-search {
+        margin-top: 1rem;
+    }
+
+    #profile-card {
+        width: 10rem;
+    }
+
+    #saved-article-url {
+        display: none;
+    }
+
+    .saved-article-name {
+        font-size: .9rem;
+    }
+
+    #navbar-brand {
+        margin-left: 1rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .form-container {
+        width: 30rem;
+    }
+
+    #profile-card {
+        width: 18rem;
+    }
+
+    #navbar-brand {
+        margin-left: 5rem;
+    }
+}

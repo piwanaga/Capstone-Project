@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-3" id="topics-container">
+        <div class="row">
+            <p class="h4 ml-1">Trending Topics</p>
+        </div>
+        <div class="row">
+            {% for topic in topics %}
+            <form action="/search" class="form-inline">
+                <input type="hidden" name="q" value="{{topic['query']['text']}}" class="form-control" placeholder="search news" aria-label="Search">
+                <button class="btn btn-outline-primary m-2">{{topic['name']}}</button>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="container my-5" id="stories-container">
+        <div class="row">
+            <p class="h2 mb-4">
+                {% if cat_name == "topstories" %}
+                Top Stories
+                {% elif cat_name == "scienceandtechnology" %}
+                Science and Technology
+                {% elif cat_name == "realestate" %}
+                Real Estate
+                {% elif cat_name == "us" %}
+                US
+                {% elif cat_name == "uk" %}
+                UK
+                {% else %}
+                {{cat_name|capitalize}}
+                {% endif %}
+            </p>
+        </div>
+        <div class="row">
+        {% for story in stories %}
+            {% include 'article-card-template.html' %}
+        {% endfor %}
+        </div>
+    </div>
+    
+    
+
+{% endblock %}

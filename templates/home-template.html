@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-2 pr-0">
+            <div class="list-group-flush mt-5">
+                {% for cat in categories %}
+                {% if cat.cat_name == cat_name %}
+                    <a href="/home/category/{{cat.cat_name}}" class="list-group-item list-group-item-action active-cat">
+                {% else %}
+                    <a href="/home/category/{{cat.cat_name}}" class="list-group-item list-group-item-action">
+                {% endif %}
+                <i class="{{cat.categories.icon}} mr-2"></i>
+                    {% if cat.cat_name == "topstories" %}
+                    Top Stories
+                    {% elif cat.cat_name == "scienceandtechnology" %}
+                    Science and Technology
+                    {% elif cat.cat_name == "realestate" %}
+                    Real Estate
+                    {% elif cat.cat_name == "us" %}
+                    US
+                    {% elif cat.cat_name == "uk" %}
+                    UK
+                    {% else %}
+                    {{cat.cat_name|capitalize}}
+                    {% endif %}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% block main_content %}{% endblock %}
+    </div>
+</div>
+
+{% endblock %}

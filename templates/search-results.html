@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-3" id="search-container">
+        <div class="row">
+            <p class="h4 mb-4">Search for "{{query}}"</p>
+        </div>
+        <div class="row">
+        {% for story in stories %}
+            {% include 'article-card-template.html' %}
+        {% endfor %}
+        </div>
+    </div>
+    
+{% endblock %}
