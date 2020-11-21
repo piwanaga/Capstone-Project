@@ -3,7 +3,7 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-<div class="container mt-5 form-container">
+<div class="container form-container">
     <div class="row justify-content-center">
         <div class="col border rounded p-4">   
             <p class="h2 text-center">{% block form_heading %}{% endblock %}</p>   
@@ -12,14 +12,22 @@
 
                 {% for field in form if field.widget.input_type != 'hidden' %}
                 <div class="form-group">
+                    <small class="font-weight-bold">{{field.label}}</small>
+                    {% if field.errors %}
+                    {{ field(placeholder=field.label.text, class="form-control", style="border-color:red") }}
+                        {% for error in field.errors %}
+                            <span class="text-danger"><small>{{ error }}</small></span>
+                        {% endfor %}
+                    {% elif custom_error and field.name == 'username' %}
+                    {{ field(placeholder=field.label.text, class="form-control", style="border-color:red") }}
+                    <span class="text-danger"><small>{% block custom_error %}{% endblock %}</small></span>
+                    {% else %}
                     {{ field(placeholder=field.label.text, class="form-control") }}
-                    {% for error in field.errors %}
-                        <span class="text-danger"><small>{{ error }}</small></span>
-                    {% endfor %}
-                </div>
+                    {% endif %}
+                </div>  
                 {% endfor %}
 
-                <button class="btn btn-primary mt-3">{% block button_text %}{% endblock %}</button>
+                <button class="btn btn-info mt-3">{% block button_text %}{% endblock %}</button>
             </form>
 
         </div>

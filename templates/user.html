@@ -10,7 +10,8 @@
             <img class="card-img-top" src="{{g.user.image_url}}" alt="Card image cap">
             <div class="card-body">
               <p class="card-title lead mb-0">{{g.user.username}}</p>
-              <p class="card-text"><small>Joined: 10-30-2020</small></p>
+              <p class="card-text mb-0"><small>{{g.user.email}}</small></p>
+              <p class="card-text"><small>{{g.user.pref_market.name}}</small></p>
               <a href="/user/{{g.user.id}}/edit" class="btn btn-primary">Edit Profile</a>
             </div>
         </div>
@@ -18,7 +19,11 @@
         <div class="col-10 pb-3 saved-articles-col">
             <div class="container">
                 <div class="row">
+                    {% if not saved_articles %}
+                    <p class="h4 mb-4 text-muted font-italic">You dont have any saved articles</p>
+                    {% else %}
                     <p class="h4 mb-4">Saved Articles</p>
+                    {% endif %}
                 </div>
                 <div class="row">
                     <div class="col pl-0">

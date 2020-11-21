@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template, request, flash, redirect, session, g
 from flask_debugtoolbar import DebugToolbarExtension
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import IntegrityError, InvalidRequestError
 from models import db, connect_db, User, SavedArticle, Market, Category, MarketCategory, STORIES, TOPICS
 from forms import RegisterForm, LoginForm, EditUserForm
 import requests
@@ -161,6 +161,7 @@ def remove_article():
         SavedArticle.query.filter(SavedArticle.user_id==user_id, SavedArticle.url==url).delete()
         db.session.commit()
 
+        flash("Article removed from favorites", "danger")
         return "success"
 
 
@@ -184,9 +185,14 @@ def show_register_form():
             
             db.session.commit()
             
+        except InvalidRequestError:
+            db.session.rollback()
+            custom_error = "Username/Email already taken"
+            return render_template('register-form.html', form=form, custom_error=custom_error)
         except IntegrityError:
-            flash("Username/Email already taken", 'danger')
-            return render_template('register-form.html', form=form)
+            db.session.rollback()
+            custom_error = "Username/Email already taken"
+            return render_template('register-form.html', form=form, custom_error=custom_error)
 
         do_login(user)
         flash("Registration successful", "info")
@@ -207,6 +213,10 @@ def show_login_form():
             do_login(user)
             flash(f"Welcome back {user.username}!", "info")
             return redirect('/')
+        
+        custom_error = "Invalid Username/Password"
+
+        return render_template('login-form.html', form=form, custom_error=custom_error)
 
     return render_template('login-form.html', form=form)
 

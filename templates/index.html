@@ -12,11 +12,12 @@
             {% for topic in topics %}
             <form action="/search" class="form-inline">
                 <input type="hidden" name="q" value="{{topic['query']['text']}}" class="form-control" placeholder="search news" aria-label="Search">
-                <button class="btn btn-outline-primary m-2">{{topic['name']}}</button>
+                <button class="btn btn-outline-info m-2">{{topic['name']}}</button>
             </form>
             {% endfor %}
         </div>
     </div>
+
     
     <div class="container my-5" id="stories-container">
         <div class="row">
@@ -36,11 +37,11 @@
                 {% endif %}
             </p>
         </div>
-        <div class="row">
+        
         {% for story in stories %}
             {% include 'article-card-template.html' %}
         {% endfor %}
-        </div>
+        
     </div>
     
     

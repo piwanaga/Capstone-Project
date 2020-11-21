@@ -1,41 +1,33 @@
 {% block article_card %}
 
-<div class="col-10 border rounded mb-3 pt-3">
-    <div class="row p-2 justify-content-between">
-        
+    <div class="row border rounded p-2 mb-2"> 
         <div class="col-8">
-            <a target="_blank" class="h5 text-dark" href="{{story['url']}}">{{story["name"]}}</a>
-            <p>{{story["description"]}}</p>
-            {% if story['url'] in saved_article_urls %}
-            <i class="fas fa-star mr-3"></i>
-            {% else %}
-            <i class="far fa-star mr-3"></i>
-            {% endif %}
-            <p class="text-muted d-inline"><small>{{story['datePublished'] | convert_dt}}</small></p>
+            <a target="_blank" class="h5 text-dark article-name" href="{{story['url']}}">{{story["name"]}}</a>
+            <p class="article-description">{{story["description"]}}</p>
+            <div class="container pl-0 publisher-container">
+                {% if story['url'] in saved_article_urls %}
+                <i class="fas fa-star mr-3 text-warning"></i>
+                {% else %}
+                <i class="far fa-star mr-3 text-warning"></i>
+                {% endif %}
+                {% if story['provider'][0].get('image') != None %}
+                <img src="{{story['provider'][0]['image']['thumbnail']['contentUrl']}}" class="publisher-img" alt="">
+                {% endif %}
+                <p class="text-muted d-inline"><small>{{story['provider'][0]['name']}} | {{story['datePublished'] | convert_dt}}</small></p>
+            </div>
         </div>
-        <div class="col-2 px-0">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <a target="_blank" href="{{story['url']}}">
-                        {% if story.get('image') != None %}
-                        <img src="{{story['image']['thumbnail']['contentUrl']}}" style="width: 7rem">
-                        {% else %}
-                        <img src="/static/images/currant.jpg" style="width: 7rem">
-                        {% endif %}
-                    </a>
-                    
-                </div>
-                <div class="row justify-content-center">
-                    <p><small>{{story['provider'][0]['name']}}</small></p>
-                </div>
-            </div>  
+        <div class="col-4">
+            <a target="_blank" href="{{story['url']}}">
+                {% if story.get('image') != None %}
+                <img src="{{story['image']['thumbnail']['contentUrl']}}" class="rounded float-right" style="width: 7rem">
+                {% else %}
+                <img src="/static/images/currant.jpg" class="rounded float-right" style="width: 7rem"> 
+                {% endif %}
+            </a>
         </div>
-            
-    </div>
-</div>
-    
         
+    </div>     
+   
     
-
-
+    
 {% endblock %}

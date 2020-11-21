@@ -1,7 +1,12 @@
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
 // Handle when a user clicks the star icon on articles
 $(".fa-star").click(async function(evt){
-    const url = $(evt.target).siblings("a")[0].href
-    const name = $(evt.target).siblings("a").text()
+    
+    const url = $(evt.target).parent().siblings("a")[0].href
+    const name = $(evt.target).parent().siblings("a").text()
     
     const resp = await axios.post("http://127.0.0.1:5000/article/save", {
         "url": url,
@@ -23,5 +28,6 @@ $(".fa-trash-alt").click(async function(evt){
 
     if (resp.data === "success") {
         window.location.reload()
+        
     }
 })

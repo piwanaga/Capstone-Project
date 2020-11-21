@@ -17,7 +17,7 @@ class User(db.Model):
 
     password = db.Column(db.Text, nullable=False)
 
-    image_url = db.Column(db.Text, default="/static/images/default-avatar.svg")
+    image_url = db.Column(db.Text, default="/static/images/default-avatar.png")
 
     market = db.Column(db.Text, db.ForeignKey("markets.code", ondelete='CASCADE'), default="en-US")
     
