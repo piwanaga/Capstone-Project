@@ -3,7 +3,7 @@ import os
 from flask import Flask, render_template, request, flash, redirect, session, g
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError, InvalidRequestError
-from models import db, connect_db, User, SavedArticle, Market, Category, MarketCategory, STORIES, TOPICS
+from models import db, connect_db, User, SavedArticle, Market, Category, MarketCategory
 from forms import RegisterForm, LoginForm, EditUserForm
 import requests
 from datetime import datetime
@@ -180,7 +180,6 @@ def show_register_form():
                 username=form.username.data,
                 password=form.password.data,
                 email=form.email.data,
-                # image_url=form.image_url.data or User.image_url.default.arg,
             )
             
             db.session.commit()
