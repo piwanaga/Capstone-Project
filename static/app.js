@@ -1,7 +1,3 @@
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  }
-
 // Handle when a user clicks the star icon on articles
 $(".fa-star").click(async function(evt){
     
