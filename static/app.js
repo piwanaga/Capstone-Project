@@ -4,7 +4,7 @@ $(".fa-star").click(async function(evt){
     const url = $(evt.target).parent().siblings("a")[0].href
     const name = $(evt.target).parent().siblings("a").text()
     
-    const resp = await axios.post("http://127.0.0.1:5000/article/save", {
+    const resp = await axios.post("/article/save", {
         "url": url,
         "name": name
     })
@@ -18,7 +18,7 @@ $(".fa-star").click(async function(evt){
 $(".fa-trash-alt").click(async function(evt){
     const url = $(evt.target).siblings("a")[0].href
     
-    const resp = await axios.post("http://127.0.0.1:5000/article/delete", {
+    const resp = await axios.post("/article/delete", {
         "url": url,
     })
 
