@@ -12,35 +12,35 @@ codes = [
     Market(code="ja-JP", name="Japan"),
     Market(code="en-GB", name="United Kingdom"),
     Market(code="en-US", name="United States")
-        ] 
+] 
 
 db.session.bulk_save_objects(codes)
 db.session.commit()
 
 categories = [
-        Category(name="auto", icon="fas fa-car"),
-        Category(name="australia", icon="far fa-flag"),
-        Category(name="business", icon="far fa-credit-card"),
-        Category(name="canada", icon="far fa-flag"),
-        Category(name="china", icon="far fa-flag"),
-        Category(name="education", icon="fas fa-graduation-cap"),
-        Category(name="entertainment", icon="fas fa-ticket-alt"),
-        Category(name="health", icon="fas fa-heartbeat"),
-        Category(name="india", icon="far fa-flag"),
-        Category(name="japan", icon="far fa-flag"),
-        Category(name="lifestyle", icon="fas fa-spa"),
-        Category(name="military", icon="fas fa-plane-departure"),
-        Category(name="politics", icon="fas fa-landmark"),
-        Category(name="products", icon="fas fa-mobile-alt"),
-        Category(name="realestate", icon="fas fa-sign"),
-        Category(name="scienceandtechnology", icon="fas fa-microscope"),
-        Category(name="society", icon="fas fa-user-friends"),
-        Category(name="sports", icon="fas fa-football-ball"),
-        Category(name="uk", icon="far fa-flag"),
-        Category(name="us", icon="far fa-flag"),
-        Category(name="world", icon="fas fa-globe"),
-        Category(name="topstories", icon="fas fa-home")
-        ]
+    Category(name="auto", icon="fas fa-car"),
+    Category(name="australia", icon="far fa-flag"),
+    Category(name="business", icon="far fa-credit-card"),
+    Category(name="canada", icon="far fa-flag"),
+    Category(name="china", icon="far fa-flag"),
+    Category(name="education", icon="fas fa-graduation-cap"),
+    Category(name="entertainment", icon="fas fa-ticket-alt"),
+    Category(name="health", icon="fas fa-heartbeat"),
+    Category(name="india", icon="far fa-flag"),
+    Category(name="japan", icon="far fa-flag"),
+    Category(name="lifestyle", icon="fas fa-spa"),
+    Category(name="military", icon="fas fa-plane-departure"),
+    Category(name="politics", icon="fas fa-landmark"),
+    Category(name="products", icon="fas fa-mobile-alt"),
+    Category(name="realestate", icon="fas fa-sign"),
+    Category(name="scienceandtechnology", icon="fas fa-microscope"),
+    Category(name="society", icon="fas fa-user-friends"),
+    Category(name="sports", icon="fas fa-football-ball"),
+    Category(name="uk", icon="far fa-flag"),
+    Category(name="us", icon="far fa-flag"),
+    Category(name="world", icon="fas fa-globe"),
+    Category(name="topstories", icon="fas fa-home")
+]
 
 db.session.bulk_save_objects(categories)
 db.session.commit()
@@ -116,14 +116,6 @@ mkt_categories = [
 db.session.bulk_save_objects(mkt_categories)
 db.session.commit()
 
-testuser = User.signup("test@email.com", "testuser", "password")
-db.session.commit()
-
-article1 = SavedArticle(user_id=testuser.id, url="http://www.google.com", name="Sports blah blah blah wins the game")
-article2 = SavedArticle(user_id=testuser.id, url="http://www.bing.com", name="Bing is a an alternative to google")
-
-db.session.add_all([article1, article2])
-db.session.commit()
 
 
 
