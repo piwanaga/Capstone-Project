@@ -1,12 +1,30 @@
-# News Aggregator
+# Currant News Aggregator
+Link to app: https://currant-news.herokuapp.com/
 
-The goal of my website will be to allow users to create accounts and search for, browse, and save news articles. The demographic of my users will be all ages (anyone who wants to read news articles), and could be from any country. I plan to use data from Microsoft’s Bing News Search API which will include headlines, descriptions of articles and links to articles. I think this data will be sufficient for the functionality I want to include.
+This website displays current news stories using the Bing News Search API. The homepage displays top stories and trending topics, with links to register/login, filter stories by category and search stories by keywords. Users are able to create accounts, which allows them to save articles set their preferred region from which to pull stories.  
 
-Roughly speaking, I plan to store data about users including personal info such as login credentials as well as stories that they save and maybe certain preferences such as the region where their news will come from. Issues I could run into with my API include retrieving and utilizing data the way I want to, but the Bing API seems pretty robust so I hope that it is a straightforward process.
+The goal of this website was to sucessfully integrate an external API into an app and build functionality around that. Mainly I wanted to use each of the endpoints offered by this API, which are Categories, Search and Trending Topics. I also wanted to implement authentication and utilize a database to store user data. 
 
-The functionality or flow that I am hoping for is a user can visit the site and see trending or popular articles. From there, they will have the ability to create an account or sign in to their existing account. Once logged in, a user should be able to see stories they have saved and have the ability to comment on stories. Some additional features I would like to implement include user preferences such as preferred topics and region as well as the ability to suggest related stories.
+Users can visit the site and immediately view all the top stories across all categories (Categories endpoint) from the Bing News Search API. There is also a list off all the trending topics (Trending Topics endpoint) which can be clicked to return articles about that particular topic. Additionally from the homepage, users can search articles for keywords (Search endpoint), filter the top stories by categories, and click a link to create an account. Once a user has created an account, they are able to click a star icon on each story-card to add that story to their favorites. They can also now view their own profile, which allows them to view all of their favorited stories as well as edit their own profile, including setting their preferred region (from a list of Bing's supported markets) from which to pull articles. 
 
-This is the API I'm going to be using: https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/endpoints
+Another area of focus for this site was a mobile first design. Using Bootstrap, I wanted the site to be responsive and look good on a small screen first. I accomplished this by using collapsible navigation and hiding/shrinking elements for a small screen. 
+
+The API can be found here: https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/endpoints
+I found this API to be easy to work with and well documented.
+
+Technology Stack:
+-HTML
+-CSS
+-Bootstrap
+-JavaScript
+-JQuery
+-Axios
+-Python
+-Flask
+-SQLAlchemy
+-Postgresql
+-WTForms
+
 
 
 
