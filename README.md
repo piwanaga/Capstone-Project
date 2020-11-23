@@ -1,7 +1,7 @@
 # Currant News Aggregator
 Link to app: https://currant-news.herokuapp.com/
 
-This website displays current news stories using the Bing News Search API. The homepage displays top stories and trending topics, with links to register/login, filter stories by category and search stories by keywords. Users are able to create accounts, which allows them to save articles set their preferred region from which to pull stories.  
+This website displays current news stories using the Bing News Search API. The homepage displays top stories and trending topics, with links to register/login, filter stories by category and search stories by keywords. Users are able to create accounts, which allows them to save articles and set their preferred region from which to pull stories.  
 
 The goal of this website was to sucessfully integrate an external API into an app and build functionality around that. Mainly I wanted to use each of the endpoints offered by this API, which are Categories, Search and Trending Topics. I also wanted to implement authentication and utilize a database to store user data. 
 
