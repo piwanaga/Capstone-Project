@@ -13,17 +13,17 @@ The API can be found here: https://rapidapi.com/microsoft-azure-org-microsoft-co
 I found this API to be easy to work with and well documented.
 
 Technology Stack:
--HTML
--CSS
--Bootstrap
--JavaScript
--JQuery
--Axios
--Python
--Flask
--SQLAlchemy
--Postgresql
--WTForms
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+- JQuery
+- Axios
+- Python
+- Flask
+- SQLAlchemy
+- Postgresql
+- WTForms
 
 
 
