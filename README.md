@@ -9,7 +9,7 @@ Users can visit the site and immediately view all the top stories across all cat
 
 Another area of focus for this site was a mobile first design. Using Bootstrap, I wanted the site to be responsive and look good on a small screen first. I accomplished this by using collapsible navigation and hiding/shrinking elements for a small screen. 
 
-The API can be found here: https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/endpoints
+The API used can be found here: https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/endpoints.
 I found this API to be easy to work with and well documented.
 
 Technology Stack:
